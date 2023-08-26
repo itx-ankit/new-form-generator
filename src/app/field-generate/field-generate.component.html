@@ -1,0 +1,16 @@
+<mat-accordion>
+  <ng-container *ngFor="let data of formData; let i = index">
+    <mat-expansion-panel [expanded]="i === 0">
+      <mat-expansion-panel-header>
+        <mat-panel-title> {{ i + 1 }}. {{ data.label }} </mat-panel-title>
+      </mat-expansion-panel-header>
+      <ng-container *ngIf="data.controls">
+        <app-form-field
+          [formData]="data.controls"
+          [submitButtonText]="data.submitButtonText"
+          (formGroupEvent)="emitFormGroup(i, $event)"
+        ></app-form-field>
+      </ng-container>
+    </mat-expansion-panel>
+  </ng-container>
+</mat-accordion>

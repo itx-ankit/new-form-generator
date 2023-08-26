@@ -1,0 +1,124 @@
+<ng-container *ngIf="formGroup && formData?.length">
+  <form [formGroup]="formGroup" (ngSubmit)="onFormSubmit()">
+    <section class="form-section">
+      <ng-container *ngFor="let field of formData">
+        <!-- Form Field Starts -->
+
+        <!-- Text Field starts -->
+        <ng-container *ngIf="field.type === 'textfield'">
+          <mat-form-field [appearance]="'outline'">
+            <input
+              matInput
+              type="text"
+              [placeholder]="field.placeholder"
+              [formControlName]="field.name"
+            />
+          </mat-form-field>
+          <ng-container *ngIf="control[field.name] as fieldControl">
+            <ng-container
+              *ngIf="fieldControl.errors?.['required'] && fieldControl.touched"
+            >
+              <mat-error> {{ field.name | titlecase }} is required</mat-error>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+        <!-- Text Field ends -->
+
+        <!-- Number Field starts -->
+        <ng-container *ngIf="field.type === 'number'">
+          <mat-form-field [appearance]="'outline'">
+            <input
+              matInput
+              type="number"
+              [placeholder]="field.placeholder"
+              [formControlName]="field.name"
+            />
+          </mat-form-field>
+          <ng-container *ngIf="control[field.name] as fieldControl">
+            <ng-container
+              *ngIf="fieldControl.errors?.['required'] && fieldControl.touched"
+            >
+              <mat-error> {{ field.name | titlecase }} is required</mat-error>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+        <!-- Number Field ends -->
+
+        <!-- Email Field starts -->
+        <ng-container *ngIf="field.type === 'email'">
+          <mat-form-field [appearance]="'outline'">
+            <input
+              matInput
+              type="email"
+              [placeholder]="field.placeholder"
+              [formControlName]="field.name"
+            />
+          </mat-form-field>
+          <ng-container *ngIf="control[field.name] as fieldControl">
+            <ng-container
+              *ngIf="fieldControl.errors?.['required'] && fieldControl.touched"
+            >
+              <mat-error> {{ field.name | titlecase }} is required</mat-error>
+            </ng-container>
+            <ng-container
+              *ngIf="fieldControl.errors?.['email'] && fieldControl.touched"
+            >
+              <mat-error>
+                Enter correct {{ field.name | titlecase }}
+              </mat-error>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+        <!-- Email Field ends -->
+
+        <!-- Text Area Field starts -->
+        <ng-container *ngIf="field.type === 'textarea'">
+          <mat-form-field [appearance]="'outline'">
+            <textarea
+              matInput
+              type="textarea"
+              [placeholder]="field.placeholder"
+              [formControlName]="field.name"
+            ></textarea>
+          </mat-form-field>
+          <ng-container *ngIf="control[field.name] as fieldControl">
+            <ng-container
+              *ngIf="fieldControl.errors?.['required'] && fieldControl.touched"
+            >
+              <mat-error> {{ field.name | titlecase }} is required</mat-error>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+        <!-- Text Area Field ends -->
+
+        <!-- Datepicker Field starts -->
+        <ng-container *ngIf="field.type === 'datepicker'">
+          <mat-form-field [appearance]="'outline'">
+            <input
+              matInput
+              [placeholder]="field.placeholder"
+              [formControlName]="field.name"
+              [matDatepicker]="picker"
+            />
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <ng-container *ngIf="$any(control)[field.name] as fieldControl">
+            <ng-container *ngIf="fieldControl.required && fieldControl.touched">
+              <mat-error> {{ field.name | titlecase }} is required</mat-error>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+        <!-- Datepicker Field ends -->
+      </ng-container>
+    </section>
+    <section class="button-section">
+      <button class="submit-button" type="submit" (click)="valueChangeEvent()">
+        {{ submitButtonText ?? "Submit" }}
+      </button>
+    </section>
+  </form>
+</ng-container>

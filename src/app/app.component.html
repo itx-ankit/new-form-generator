@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <ng-container *ngIf="!formData">
+    <section class="text-area">
+      <app-field-generate
+        [formData]="textAreaForm"
+        (formGroupEvent)="setFormData($event)"
+      >
+      </app-field-generate>
+    </section>
+  </ng-container>
+  <ng-container *ngIf="formData">
+    <section class="form-generator">
+      <app-field-generate
+        [formData]="formData"
+        (formGroupEvent)="openDialogBox($event)"
+      >
+      </app-field-generate>
+    </section>
+  </ng-container>
+</div>

@@ -1,0 +1,17 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css"; 
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+}
+
+.alert-message .mdc-snackbar__surface {
+    background-color: red !important;
+    text-align: center;
+}
