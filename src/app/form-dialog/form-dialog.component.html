@@ -10,15 +10,13 @@
             <div class="value">{{ item.value }}</div>
           </ng-container>
           <ng-container *ngIf="item.type === 'Array'">
-            <li>
+            <ul class="list">
               <ng-container *ngFor="let value of $any(item.value)">
-                <ul>
-                  {{
-                    item.value
-                  }}
-                </ul>
+                <li>
+                  {{ item.value }}
+                </li>
               </ng-container>
-            </li>
+            </ul>
           </ng-container>
         </ng-container>
       </div>

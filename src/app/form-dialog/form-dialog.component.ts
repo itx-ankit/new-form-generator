@@ -19,14 +19,12 @@ export class FormDialogComponent {
     type: string;
     value: (string | number)[] | string | number;
   } {
-    let formValue: (string | number)[] | string | number = '';
     if (Array.isArray(data) && data.length) {
       return {
         type: 'Array',
-        value: formValue,
+        value: data,
       };
     } else if (typeof data === 'string' || typeof data === 'number') {
-      formValue = data;
       return {
         type: 'string',
         value: data,
