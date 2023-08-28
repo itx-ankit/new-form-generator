@@ -12,6 +12,74 @@
 
         .text-area {
             width: 100%;
+
+            .supported-formats {
+                .text {
+                    font-size: 22px;
+                    padding: 16px 0;
+                }
+
+                li {
+                    padding-bottom: 8px;
+                    font-size: 16px;
+                }
+            }
+
+            .example-content {
+                position: relative;
+
+                .text {
+                    font-size: 22px;
+                    font-style: italic;
+                    padding: 16px 0;
+                }
+
+                .content {
+                    position: relative;
+
+                    .json {
+                        background: black;
+                        color: white;
+                        width: 100%;
+                    }
+
+                    .clip-board {
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+                        font-size: 20px;
+                        text-align: right;
+                        position: absolute;
+                        top: 12px;
+                        right: 12px;
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            &::ng-deep .mat-mdc-text-field-wrapper:has(textarea) {
+                height: 60vh;
+
+                .mat-mdc-form-field-flex {
+                    height: 100%;
+
+                    .mat-mdc-form-field-infix {
+                        height: 100%;
+
+                        .mat-mdc-input-element {
+                            height: 100%;
+
+                            &::placeholder {
+                                font-size: 24px;
+                                position: relative;
+                                top: 50%;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         .form-generator {

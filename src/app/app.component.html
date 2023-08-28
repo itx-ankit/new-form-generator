@@ -6,6 +6,26 @@
         (formGroupEvent)="setFormData($event)"
       >
       </app-field-generate>
+      <div class="supported-formats">
+        <div class="text">These are the supported formats 👇👇👇</div>
+        <ol>
+          <ng-container *ngFor="let data of supportedFormats">
+            <li>
+              {{ data | titlecase }} - <i>"{{ data }}"</i>
+            </li>
+          </ng-container>
+        </ol>
+      </div>
+      <div class="example-content">
+        <div class="text">This is the JSON example to use 👇👇👇</div>
+        <div class="content">
+          <pre class="json"> {{ dummyJson | json }} </pre>
+          <div class="clip-board" (click)="copyToClipboard()">
+            <span><i class="fa-solid fa-copy"></i></span>
+            <span>Click to Copy</span>
+          </div>
+        </div>
+      </div>
     </section>
   </ng-container>
   <ng-container *ngIf="formData">

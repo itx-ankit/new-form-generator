@@ -87,6 +87,4 @@ export class FormFieldComponent implements OnInit {
   get control(): { [key: string]: AbstractControl } {
     return this.formGroup.controls;
   }
-
-  onFormSubmit() {}
 }

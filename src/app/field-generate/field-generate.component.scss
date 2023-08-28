@@ -1,9 +1,15 @@
 :host {
-    .mat-expansion-panel {
-        background-color: #dedede;
+    .mat-accordion {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
 
-        .mat-expansion-panel-header-title {
-            color: blue;
+        .mat-expansion-panel {
+            background-color: #dedede;
+
+            .mat-expansion-panel-header-title {
+                color: blue;
+            }
         }
     }
 }

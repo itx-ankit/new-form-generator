@@ -29,6 +29,11 @@ export class FormDialogComponent {
         type: 'string',
         value: data,
       };
+    } else if (typeof data === 'object') {
+      return {
+        type: 'string',
+        value: JSON.stringify(data),
+      };
     }
     return {
       type: '',

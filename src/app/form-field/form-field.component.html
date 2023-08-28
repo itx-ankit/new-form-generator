@@ -1,5 +1,5 @@
 <ng-container *ngIf="formGroup && formData?.length">
-  <form [formGroup]="formGroup" (ngSubmit)="onFormSubmit()">
+  <form [formGroup]="formGroup">
     <section class="form-section">
       <ng-container *ngFor="let field of formData">
         <!-- Form Field Starts -->
