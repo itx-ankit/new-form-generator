@@ -90,6 +90,9 @@ export class AppComponent implements OnInit {
   copyToClipboard() {
     const json = JSON.stringify(this.dummyJson, null, 2);
     this.clipboard.copy(json);
+    this._snackBar.open('Json copied to clipboard', '', {
+      duration: 1000,
+    });
   }
 }
 
